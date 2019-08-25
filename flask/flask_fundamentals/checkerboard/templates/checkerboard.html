@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Checkerboard</title>
+    <style>
+        table tr td{
+            width:50px;
+            height:50px;
+        }
+        .color1{
+            background-color: red;
+        }
+        .color2{
+            background-color: black;
+        }
+        .td{
+            width: 600px;
+            height: 600px;
+            border: 1 px solid black;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <table>
+    {% for i in range(numberoftimes): %}
+        <tr> 
+            {% for j in range(numberoftimes): %}
+            <td class='color1'></td>
+            <td class='color2'></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for j in range(numberoftimes): %}
+            <td class= 'color2'></td>
+            <td class= 'color1'></td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+        </tr>
+    </table>
+</body>
+</html>
+
+

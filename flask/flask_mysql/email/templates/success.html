@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Success</title>
+</head>
+<body>
+    <h1>All Emails</h1>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %} 
+    {% for message in messages %}
+    <h1 class="text-success">{{message}}</h1>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Emails</th>
+                    <th scope="col">Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for email in email %}
+                <tr>
+                    <td>{{ email['email'] }}</td>
+                    <td>{{ email['created_at'] }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    
+</body>
+</html>

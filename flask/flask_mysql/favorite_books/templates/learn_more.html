@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show A Favorite Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" ref="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <div class="mastercontainer">
+        <nav class="navbar navbar-light bg-primary">
+            <a class="navbar-brand"></a>
+            <form class="form-inline">
+                <a href='/show' class="btn btn-secondary">back</a>
+            </form>
+        </nav>
+        <div class="container_left">
+            <div class="row">
+                <div class="col-lg">
+                    <h1>{{ book[0].title }}</h1>
+                    <h2>Added by: {{ addby[0].first_name }}</h2>
+                    <h2>Added on: {{ book[0].created_at }}</h2>
+
+                    <form action='/learn_more/update/{{book[0].id}}' method='POST'>
+
+                        <textarea class="form-control col-6 mb-2" name="title"
+                            placeholder="title">{{ book[0].title }}</textarea>
+
+
+                        {% with messages = get_flashed_messages(category_filter=['description_error']) %}
+                        {% if messages %}
+                        {% for message in messages %}
+                        <p class="text-danger">{{message}}</p>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+
+                        <textarea class="form-control col-6 mb-2" name="description"
+                            placeholder="description">{{ book[0].description }}</textarea>
+
+                        <input type="submit" class="btn btn-info" value="Update">
+                        <a href="/learn_more/delete/{{ book[0].id }}" class="btn btn-danger">Delete</a>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container_right">
+            <div class="row">
+                <div class="col-lg">
+                    <h1>Users Who Liked This Book:</h1>
+                    <p>LIST OF USERS WHO LIKED THIS BOOK HERE</p>
+
+                    <table class="table table-borderless">
+                        <tbody>
+                            {% for fan in fans %}
+                            
+                            <tr>
+                                <th scope="col">{{ fan.first_name }}</th>
+
+                            </tr>
+                           
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

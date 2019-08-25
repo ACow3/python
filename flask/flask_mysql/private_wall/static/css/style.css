@@ -1,0 +1,80 @@
+.mastercontainer{
+    margin: 0px auto;
+    height: 800px;
+
+}
+
+.row-wrap{
+    height: 50px;
+    background-color: green;
+}
+
+
+h1{
+    margin-bottom: 25px;
+}
+
+
+h5{
+    font-size: 24pt;
+    position: relative;
+}
+
+.navbar p{
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.text{
+    margin-bottom: 20px;
+}
+
+
+.container_left{
+    margin: 0px auto;
+    border: 2px solid black;
+    background-color: yellow;
+    width: 600px;
+    min-height: 800px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.container_right{
+    margin: 0px auto;
+    background-color: plum;
+    width: 600px;
+    min-height: 800px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.left{
+    border-right: 2px dotted black;
+    min-height: 700px;
+    
+}
+
+.col-8{
+    background-color: red;
+    
+    
+}
+
+.col-4{
+    background-color:white;
+}
+
+
+p {
+    font-size: 14pt;
+}
+
+
+h6{
+    font-size: 12pt;
+}
+
+.footer{
+    outline: 1px solid red;
+}
